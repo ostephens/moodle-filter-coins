@@ -19,7 +19,7 @@
  *
  * @package    filter
  * @subpackage coins
- * @copyright  Owen Stephens (http://ostephens.com)
+ * @copyright Owen Stephens  {@link http://ostephens.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
