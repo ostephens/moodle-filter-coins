@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Filter to find COinS (ContextObject in Span http://ocoins.info/) and create an OpenURL
+ * Version details
  *
  * @package    filter
  * @subpackage coins
@@ -25,9 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-class coins_filter extends moodle_text_filter {
-    public function filter($text) {
-        global $CFG;
-    }
-}
-?>
+$plugin->version   = 2012041100;        // The current plugin version (Date: YYYYMMDDXX)
+$plugin->requires  = 2011112900;        // Requires this Moodle version
+$plugin->component = 'filter_coins';  // Full name of the plugin (used for diagnostics)
