@@ -27,8 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 class filter_coins extends moodle_text_filter {
 
-    public function filter ($text) {
+	public function filter($text, array $options = array()) {
         global $CFG;
+
 		if (strpos($text, 'z3988') === false && strpos($text, 'Z3988') === false) {
 			//no COinS
 			return $text;
@@ -37,16 +38,14 @@ class filter_coins extends moodle_text_filter {
 		$matches = array();
 
 		/// regular expression to define a standard email string.
-		$coinsregex = '<span class="[Zz]3988" title="([^"])"><\/span>';
-
+		$coinsregex = '/<span class="[Zz]3988" title="(.*)"><\/span>/';
 		$text = preg_replace_callback($coinsregex, 'filter_coins_addlink', $text);
-
 		return $text;
     }
 }
 
 function filter_coins_addlink($matches) {
-    return $matches[0].'<a href="'.$CFG->filter_coins_baseurl.'?'.$matches[1].
-				'">"<img alt="'.$CFG->filter_coins_linkalttext.'" src="'.$CFG->filter_coins_linkicon.'"></a>';
+	global $CFG;
+    return '<a href="'.$CFG->filter_coins_baseurl.'?'.$matches[1].
+				'"><img alt="'.$CFG->filter_coins_linkalttext.'" src="'.$CFG->filter_coins_linkicon.'"></a>'.$matches[0];
 }
-?>
