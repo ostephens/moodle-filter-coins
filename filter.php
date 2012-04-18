@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 class filter_coins extends moodle_text_filter {
 
-    public function filter ($text) {
+	function filter ($text) {
         global $CFG;
 		if (strpos($text, 'z3988') === false && strpos($text, 'Z3988') === false) {
 			//no COinS
