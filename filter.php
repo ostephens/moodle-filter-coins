@@ -38,7 +38,7 @@ class filter_coins extends moodle_text_filter {
 		$matches = array();
 
 		/// regular expression to define a standard email string.
-		$coinsregex = '/<span class="[Zz]3988" title="(.*)"><\/span>/';
+		$coinsregex = '/<span class="[Zz]3988" title="(.*)">\s<\/span>/';
 		$text = preg_replace_callback($coinsregex, 'filter_coins_addlink', $text);
 		return $text;
     }
